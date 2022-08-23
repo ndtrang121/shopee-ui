@@ -166,6 +166,7 @@ html {
 /* List options */
 .select-input__list {
 	position: absolute;
+	z-index: 1;
 	width: 100%;
 	left: 0;
 	top: calc(100% - 8px);
