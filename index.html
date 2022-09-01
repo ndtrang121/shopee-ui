@@ -8,14 +8,16 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 	<link rel="stylesheet" href="./assets/css/base.css">
 	<link rel="stylesheet" href="./assets/css/main.css">
+	<link rel="stylesheet" href="./assets/css/grid.css">
+	<link rel="stylesheet" href="./assets/css/responsive.css">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 </head>
 <body>
 	<div class="app">
 		<header class="header">
-			<div class="grid">
-				<nav class="header__navbar">
+			<div class="grid wide">
+				<nav class="header__navbar hide-on-mobile-tablet">
 					<ul class="header__navbar-list">
 						<li class="header__navbar-item header__navbar-item--separate header__navbar-item--has-qr">
 							Tải ứng dụng
@@ -88,9 +90,9 @@
 								Hỗ trợ
 							</a>
 						</li>
-						<!-- <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate">Đăng ký</li>
-						<li class="header__navbar-item header__navbar-item--strong">Đăng nhập</li> -->
-						<li class="header__navbar-item header__navbar-user">
+						<li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate register">Đăng ký</li>
+						<li class="header__navbar-item header__navbar-item--strong login">Đăng nhập</li>
+						<!-- <li class="header__navbar-item header__navbar-user">
 							<img src="https://symbols.vn/wp-content/uploads/2022/01/Hinh-dai-dien-Avatar-Doraemon-Ngau-chat-nhat.jpg" alt="" class="header__navbar-user-img">
 							<span class="header__navbar-user-name">Doraemon</span>
 							<ul class="header__navbar-user-menu">
@@ -99,13 +101,66 @@
 								<li class="header__navbar-user-item"><a>Đơn mua</a></li>
 								<li class="header__navbar-user-item"><a>Đăng xuất</a></li>
 							</ul>
-						</li>
+						</li> -->
 					</ul>
 				</nav>
 
 				<!-- Header with search -->
 				<div class="header-with-search">
-					<div class="header__logo">
+
+					<div class="mobile-navbar-search">
+						<i class="mobile-navbar-menu fa-solid fa-bars"></i>
+
+						<div class="mobile-navbar-menu__wrap">
+							<div class="mobile-navbar-menu-overlay"></div>
+							<ul class="mobile-navbar-menu__list">
+								<li class="mobile-navbar-menu__item register-mobile">Đăng ký</li>
+								<li class="mobile-navbar-menu__item login-mobile">Đăng nhập</li>
+							</ul>
+						</div>
+						<label for="mobile-search-checkbox" class="header__mobile-search">
+							<i class="header__mobile-search-icon fa-solid fa-search"></i>
+						</label>
+						<input type="checkbox" hidden id="mobile-search-checkbox">
+						<div class="header__search">
+                            <div class="header__search-input-wrap">
+                                <input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm">
+                                
+                                <!-- Search history -->
+                                <div class="header__search-history">
+                                    <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
+                                    <ul class="header__search-history-list">
+                                        <li class="header__search-history-item">
+                                            <a href="">Kem dưỡng da</a>
+                                        </li>
+                                        <li class="header__search-history-item">
+                                            <a href="">Kem trị mụn</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="header__search-select">
+                                <span class="header__search-select-label">Trong shop</span>
+                                <i class="header__search-select-icon fas fa-angle-down"></i>
+
+                                <ul class="header__search-option">
+                                    <li class="header__search-option-item header__search-option-item--active">
+                                        <span>Trong shop</span>
+                                        <i class="fas fa-check"></i>
+                                    </li>
+                                    <li class="header__search-option-item">
+                                        <span>Ngoài shop</span>
+                                        <i class="fas fa-check"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button class="header__search-btn">
+                                <i class="header__search-btn-icon fas fa-search"></i>
+                            </button>
+                        </div>
+					</div>
+
+					<div class="header__logo hide-on-tablet">
 						<a href="/" class="header__logo-link">
 							<svg class="header__logo-img" viewBox="0 0 192 65">
 								<g fill-rule="evenodd">
@@ -118,7 +173,7 @@
 						</a>
 					</div>
 
-					<div class="header__search">
+					<div class="header__search hide-on-mobile">
 						<div class="header__search-input-wrap">
 							<input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm">
 							
@@ -290,12 +345,28 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- Header sort bar -->
+			<ul class="header__sort-bar">
+				<li class="header__sort-item">
+					<a href="" class="header__sort-link">Liên quan</a>
+				</li>
+				<li class="header__sort-item">
+					<a href="" class="header__sort-link header__sort-item--active">Mới nhất</a>
+				</li>
+				<li class="header__sort-item">
+					<a href="" class="header__sort-link">Bán chạy</a>
+				</li>
+				<li class="header__sort-item">
+					<a href="" class="header__sort-link">Giá</a>
+				</li>
+			</ul>
 		</header>
 
 		<div class="app__container">
-			<div class="grid">
-				<div class="grid__row">
-					<div class="grid__column-2">
+			<div class="grid wide">
+				<div class="row sm-gutter app__content">
+					<div class="col l-2 m-0 c-0">
 						<nav class="category">
 							<h3 class="category__heading">Danh mục</h3>
 							<ul class="category-list">
@@ -312,8 +383,8 @@
 						</nav>
 					</div>
 	
-					<div class="grid__column-10">
-						<div class="home-filter">
+					<div class="col l-10 m-12 c-12">
+						<div class="home-filter hide-on-mobile-tablet">
 							<div class="home-filter__wrap">
 								<span class="home-filter__label">Sắp xếp theo</span>
 								<button class="home-filter__btn btn">Phổ biến</button>
@@ -351,10 +422,53 @@
 							</div>
 						</div>
 
+						<nav class="mobile-categary">
+							<ul class="mobile-categary__list">
+								<li class="mobile-categary__item">
+									<a href="" class="mobile-categary__link">Dụng cụ & Thiết bị tiện ích</a>
+								<li class="mobile-categary__item">
+									<a href="" class="mobile-categary__link">Dụng cụ & Thiết bị tiện ích</a>
+								</li>
+								<li class="mobile-categary__item">
+									<a href="" class="mobile-categary__link">Dụng cụ & Thiết bị tiện ích</a>
+								</li>
+								<li class="mobile-categary__item">
+									<a href="" class="mobile-categary__link">Dụng cụ & Thiết bị tiện ích</a>
+								</li>
+								<li class="mobile-categary__item">
+									<a href="" class="mobile-categary__link">Dụng cụ & Thiết bị tiện ích</a>
+								</li>
+								<li class="mobile-categary__item">
+									<a href="" class="mobile-categary__link">Dụng cụ & Thiết bị tiện ích</a>
+								</li>
+								<li class="mobile-categary__item">
+									<a href="" class="mobile-categary__link">Dụng cụ & Thiết bị tiện ích</a>
+								</li>
+								<li class="mobile-categary__item">
+									<a href="" class="mobile-categary__link">Dụng cụ & Thiết bị tiện ích</a>
+								</li>
+								<li class="mobile-categary__item">
+									<a href="" class="mobile-categary__link">Dụng cụ & Thiết bị tiện ích</a>
+								</li>
+								<li class="mobile-categary__item">
+									<a href="" class="mobile-categary__link">Dụng cụ & Thiết bị tiện ích</a>
+								</li>
+								<li class="mobile-categary__item">
+									<a href="" class="mobile-categary__link">Dụng cụ & Thiết bị tiện ích</a>
+								</li>
+								<li class="mobile-categary__item">
+									<a href="" class="mobile-categary__link">Dụng cụ & Thiết bị tiện ích</a>
+								</li>
+								<li class="mobile-categary__item">
+									<a href="" class="mobile-categary__link">Dụng cụ & Thiết bị tiện ích</a>
+								</li>
+							</ul>
+						</nav>
+
 						<div class="home-product">
-							<div class="grid__row">
+							<div class="row sm-gutter">
 								<!-- Product item -->
-								<div class="grid__column-2-4">
+								<div class="col l-2-4 m-4 c-6">
 									<a class="home-product-item" href="#">
 										<div class="home-product-item__img" style="background-image: url(https://lzd-img-global.slatic.net/g/p/174212db2b4a8686e8dbedc9e8f8fa54.jpg_400x400q75.jpg_.webp);"></div>
 										<h4 class="home-product-item__name">Bộ dưỡng chất (Serum) khoáng phục hồi chuyên sâu Vichy Mineral 89 50ml tặng kèm 15ml x3</h4>
@@ -390,7 +504,7 @@
 										</div>
 									</a>
 								</div>
-								<div class="grid__column-2-4">
+								<div class="col l-2-4 m-4 c-6">
 									<a class="home-product-item" href="#">
 										<div class="home-product-item__img" style="background-image: url(	https://cf.shopee.vn/file/97aee92c43f443ebc9718483754f5ed9_tn);"></div>
 										<h4 class="home-product-item__name">Bộ Sản Phẩm Kem Dưỡng Da POND'S Age Miracle Chống Lão Hoá Ngày Và Đêm 50g x 2</h4>
@@ -426,7 +540,7 @@
 										</div>
 									</a>
 								</div>
-								<div class="grid__column-2-4">
+								<div class="col l-2-4 m-4 c-6">
 									<a class="home-product-item" href="#">
 										<div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/f7cb9ae001dae46263381cbec17af2be_tn);"></div>
 										<h4 class="home-product-item__name">Sáp Dưỡng Ẩm Vaseline 50G Của Mỹ - chính hãng USA</h4>
@@ -462,7 +576,7 @@
 										</div>
 									</a>
 								</div>
-								<div class="grid__column-2-4">
+								<div class="col l-2-4 m-4 c-6">
 									<a class="home-product-item" href="#">
 										<div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/6fe7c24c8422f982e2e42c22ea1402fd_tn);"></div>
 										<h4 class="home-product-item__name">Bộ 6 mỹ phẩm chăm sóc da LAIKOU Sakura trẻ hóa làm trắng da</h4>
@@ -498,7 +612,7 @@
 										</div>
 									</a>
 								</div>
-								<div class="grid__column-2-4">
+								<div class="col l-2-4 m-4 c-6">
 									<a class="home-product-item" href="#">
 										<div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/487fa59d1514ce23b904af09890c8f06_tn);"></div>
 										<h4 class="home-product-item__name">Bộ mỹ phẩm  chăm sóc da cho nam, sữa rửa mặt - Toner +  kem dưỡng ẩm Veze 2021 - DIKI</h4>
@@ -534,7 +648,7 @@
 										</div>
 									</a>
 								</div>
-								<div class="grid__column-2-4">
+								<div class="col l-2-4 m-4 c-6">
 									<a class="home-product-item" href="#">
 										<div class="home-product-item__img" style="background-image: url(https://lzd-img-global.slatic.net/g/p/174212db2b4a8686e8dbedc9e8f8fa54.jpg_400x400q75.jpg_.webp);"></div>
 										<h4 class="home-product-item__name">Bộ dưỡng chất (Serum) khoáng phục hồi chuyên sâu Vichy Mineral 89 50ml tặng kèm 15ml x3</h4>
@@ -570,7 +684,7 @@
 										</div>
 									</a>
 								</div>
-								<div class="grid__column-2-4">
+								<div class="col l-2-4 m-4 c-6">
 									<a class="home-product-item" href="#">
 										<div class="home-product-item__img" style="background-image: url(	https://cf.shopee.vn/file/97aee92c43f443ebc9718483754f5ed9_tn);"></div>
 										<h4 class="home-product-item__name">Bộ Sản Phẩm Kem Dưỡng Da POND'S Age Miracle Chống Lão Hoá Ngày Và Đêm 50g x 2</h4>
@@ -606,7 +720,7 @@
 										</div>
 									</a>
 								</div>
-								<div class="grid__column-2-4">
+								<div class="col l-2-4 m-4 c-6">
 									<a class="home-product-item" href="#">
 										<div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/f7cb9ae001dae46263381cbec17af2be_tn);"></div>
 										<h4 class="home-product-item__name">Sáp Dưỡng Ẩm Vaseline 50G Của Mỹ - chính hãng USA</h4>
@@ -642,7 +756,7 @@
 										</div>
 									</a>
 								</div>
-								<div class="grid__column-2-4">
+								<div class="col l-2-4 m-4 c-6">
 									<a class="home-product-item" href="#">
 										<div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/6fe7c24c8422f982e2e42c22ea1402fd_tn);"></div>
 										<h4 class="home-product-item__name">Bộ 6 mỹ phẩm chăm sóc da LAIKOU Sakura trẻ hóa làm trắng da</h4>
@@ -678,7 +792,7 @@
 										</div>
 									</a>
 								</div>
-								<div class="grid__column-2-4">
+								<div class="col l-2-4 m-4 c-6">
 									<a class="home-product-item" href="#">
 										<div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/487fa59d1514ce23b904af09890c8f06_tn);"></div>
 										<h4 class="home-product-item__name">Bộ mỹ phẩm  chăm sóc da cho nam, sữa rửa mặt - Toner +  kem dưỡng ẩm Veze 2021 - DIKI</h4>
@@ -714,7 +828,186 @@
 										</div>
 									</a>
 								</div>
-								
+								<div class="col l-2-4 m-4 c-6">
+									<a class="home-product-item" href="#">
+										<div class="home-product-item__img" style="background-image: url(https://lzd-img-global.slatic.net/g/p/174212db2b4a8686e8dbedc9e8f8fa54.jpg_400x400q75.jpg_.webp);"></div>
+										<h4 class="home-product-item__name">Bộ dưỡng chất (Serum) khoáng phục hồi chuyên sâu Vichy Mineral 89 50ml tặng kèm 15ml x3</h4>
+										<div class="home-product-item__price">
+											<span class="home-product-item__current-old">1.200.000đ</span>
+											<span class="home-product-item__current-current">999.000đ</span>
+										</div>
+										<div class="home-product-item__action">
+											<span class="home-product-item__like home-product-item__like--liked">
+												<i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
+												<i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+											</span>
+											<div class="home-product-item__rating">
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="fa-solid fa-star"></i>
+											</div>
+											<span class="home-product-item__sold">88 đã bán</span>
+										</div>
+										<div class="home-product-item__origin">
+											<span class="home-product-item__brand">Vichy</span>
+											<span class="home-product-item__origin-name">Nhật Bản</span>
+										</div>
+										<div class="home-product-item__favourite">
+											<i class="fa-solid fa-check"></i>
+											<span>Yêu thích</span>
+										</div>
+										<div class="home-product-item__sale-off">
+											<span class="home-product-item__sale-off-percent">43%</span>
+											<span class="home-product-item__sale-off-label">GIẢM</span>
+										</div>
+									</a>
+								</div>
+								<div class="col l-2-4 m-4 c-6">
+									<a class="home-product-item" href="#">
+										<div class="home-product-item__img" style="background-image: url(	https://cf.shopee.vn/file/97aee92c43f443ebc9718483754f5ed9_tn);"></div>
+										<h4 class="home-product-item__name">Bộ Sản Phẩm Kem Dưỡng Da POND'S Age Miracle Chống Lão Hoá Ngày Và Đêm 50g x 2</h4>
+										<div class="home-product-item__price">
+											<span class="home-product-item__current-old">722.000đ</span>
+											<span class="home-product-item__current-current">463.000đ</span>
+										</div>
+										<div class="home-product-item__action">
+											<span class="home-product-item__like home-product-item__like--liked">
+												<i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
+												<i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+											</span>
+											<div class="home-product-item__rating">
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="fa-solid fa-star"></i>
+											</div>
+											<span class="home-product-item__sold">8k đã bán</span>
+										</div>
+										<div class="home-product-item__origin">
+											<span class="home-product-item__brand">Vichy</span>
+											<span class="home-product-item__origin-name">Nhật Bản</span>
+										</div>
+										<div class="home-product-item__favourite">
+											<i class="fa-solid fa-check"></i>
+											<span>Yêu thích</span>
+										</div>
+										<div class="home-product-item__sale-off">
+											<span class="home-product-item__sale-off-percent">36%</span>
+											<span class="home-product-item__sale-off-label">GIẢM</span>
+										</div>
+									</a>
+								</div>
+								<div class="col l-2-4 m-4 c-6">
+									<a class="home-product-item" href="#">
+										<div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/f7cb9ae001dae46263381cbec17af2be_tn);"></div>
+										<h4 class="home-product-item__name">Sáp Dưỡng Ẩm Vaseline 50G Của Mỹ - chính hãng USA</h4>
+										<div class="home-product-item__price">
+											<span class="home-product-item__current-old">100.000đ</span>
+											<span class="home-product-item__current-current">50.000đ</span>
+										</div>
+										<div class="home-product-item__action">
+											<span class="home-product-item__like home-product-item__like--liked">
+												<i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
+												<i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+											</span>
+											<div class="home-product-item__rating">
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="fa-solid fa-star"></i>
+											</div>
+											<span class="home-product-item__sold">1,5k đã bán</span>
+										</div>
+										<div class="home-product-item__origin">
+											<span class="home-product-item__brand">Vichy</span>
+											<span class="home-product-item__origin-name">Nhật Bản</span>
+										</div>
+										<div class="home-product-item__favourite">
+											<i class="fa-solid fa-check"></i>
+											<span>Yêu thích</span>
+										</div>
+										<div class="home-product-item__sale-off">
+											<span class="home-product-item__sale-off-percent">50%</span>
+											<span class="home-product-item__sale-off-label">GIẢM</span>
+										</div>
+									</a>
+								</div>
+								<div class="col l-2-4 m-4 c-6">
+									<a class="home-product-item" href="#">
+										<div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/6fe7c24c8422f982e2e42c22ea1402fd_tn);"></div>
+										<h4 class="home-product-item__name">Bộ 6 mỹ phẩm chăm sóc da LAIKOU Sakura trẻ hóa làm trắng da</h4>
+										<div class="home-product-item__price">
+											<span class="home-product-item__current-old">333.623đ</span>
+											<span class="home-product-item__current-current">183.000đ</span>
+										</div>
+										<div class="home-product-item__action">
+											<span class="home-product-item__like home-product-item__like--liked">
+												<i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
+												<i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+											</span>
+											<div class="home-product-item__rating">
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="fa-solid fa-star"></i>
+											</div>
+											<span class="home-product-item__sold">10,4k đã bán</span>
+										</div>
+										<div class="home-product-item__origin">
+											<span class="home-product-item__brand">Vichy</span>
+											<span class="home-product-item__origin-name">Nhật Bản</span>
+										</div>
+										<div class="home-product-item__favourite">
+											<i class="fa-solid fa-check"></i>
+											<span>Yêu thích</span>
+										</div>
+										<div class="home-product-item__sale-off">
+											<span class="home-product-item__sale-off-percent">45%</span>
+											<span class="home-product-item__sale-off-label">GIẢM</span>
+										</div>
+									</a>
+								</div>
+								<div class="col l-2-4 m-4 c-6">
+									<a class="home-product-item" href="#">
+										<div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/487fa59d1514ce23b904af09890c8f06_tn);"></div>
+										<h4 class="home-product-item__name">Bộ mỹ phẩm  chăm sóc da cho nam, sữa rửa mặt - Toner +  kem dưỡng ẩm Veze 2021 - DIKI</h4>
+										<div class="home-product-item__price">
+											<span class="home-product-item__current-old">250.000đ</span>
+											<span class="home-product-item__current-current">150.000đ</span>
+										</div>
+										<div class="home-product-item__action">
+											<span class="home-product-item__like home-product-item__like--liked">
+												<i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
+												<i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+											</span>
+											<div class="home-product-item__rating">
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="home-product-item__star--gold fa-solid fa-star"></i>
+												<i class="fa-solid fa-star"></i>
+											</div>
+											<span class="home-product-item__sold">1,2m đã bán</span>
+										</div>
+										<div class="home-product-item__origin">
+											<span class="home-product-item__brand">Vichy</span>
+											<span class="home-product-item__origin-name">Nhật Bản</span>
+										</div>
+										<div class="home-product-item__favourite">
+											<i class="fa-solid fa-check"></i>
+											<span>Yêu thích</span>
+										</div>
+										<div class="home-product-item__sale-off">
+											<span class="home-product-item__sale-off-percent">24%</span>
+											<span class="home-product-item__sale-off-label">GIẢM</span>
+										</div>
+									</a>
+								</div>
 							</div>
 						</div>
 
@@ -757,9 +1050,9 @@
 		</div>
 
 		<footer class="footer">
-			<div class="grid">
-				<div class="grid__row">
-					<div class="grid__column-2-4">
+			<div class="grid wide footer__content">
+				<div class="row">
+					<div class="col l-2-4 m-4 c-6">
 						<h3 class="footer__heading">Chăm sóc khách hàng</h3>
 						<ul class="footer-list">
 							<li class="footer-item">
@@ -773,7 +1066,7 @@
 							</li>
 						</ul>
 					</div>
-					<div class="grid__column-2-4">
+					<div class="col l-2-4 m-4 c-6">
 						<h3 class="footer__heading">Giới thiệu</h3>
 						<ul class="footer-list">
 							<li class="footer-item">
@@ -787,7 +1080,7 @@
 							</li>
 						</ul>
 					</div>
-					<div class="grid__column-2-4">
+					<div class="col l-2-4 m-4 c-6">
 						<h3 class="footer__heading">Danh mục</h3>
 						<ul class="footer-list">
 							<li class="footer-item">
@@ -801,7 +1094,7 @@
 							</li>
 						</ul>
 					</div>
-					<div class="grid__column-2-4">
+					<div class="col l-2-4 m-4 c-6">
 						<h3 class="footer__heading">Theo dõi</h3>
 						<ul class="footer-list">
 							<li class="footer-item">
@@ -824,7 +1117,7 @@
 							</li>
 						</ul>
 					</div>
-					<div class="grid__column-2-4">
+					<div class="col l-2-4 m-8 c-12">
 						<h3 class="footer__heading">Vào cửa hàng trên ứng dụng</h3>
 						<div class="footer__download">
 							<img src="./assets/img/qr_code.png" alt="Download QR" class="footer__download-qr">
@@ -841,7 +1134,7 @@
 				</div>
 			</div>
 			<div class="footer__bottom">
-				<div class="grid">
+				<div class="grid wide">
 					<p class="footer__text">© 2019 - Bản quyền thuộc về Công ty MyCV</p>
 				</div>
 			</div>
@@ -849,16 +1142,16 @@
 	</div>
 
 	<!-- Modal layout -->
-	<!-- <div class="modal">
+	<div class="modal">
 		<div class="modal__overlay"></div>
 
-		<div class="modal__body"> -->
+		<div class="modal__body">
 			<!-- Register form -->
-			<!-- <div class="auth-form">
+			<div class="auth-form auth-form__register">
 				<div class="auth-form__container">
 					<div class="auth-form__header">
-						<h3 class="auth-form__heading">Đăng ký</h3>
-						<span class="auth-form__switch-btn">Đăng nhập</span>
+						<h3 class="auth-form__heading regis">Đăng ký</h3>
+						<span class="auth-form__switch-btn login-inregister">Đăng nhập</span>
 					</div>
 
 					<div class="auth-form__form">
@@ -897,14 +1190,14 @@
 						<span class="auth-form__socials-title">Kết nối với Google</span>
 					</a>
 				</div>
-			</div> -->
+			</div>
 
 			<!-- Login form -->
-			<!-- <div class="auth-form">
+			<div class="auth-form auth-form__login">
 				<div class="auth-form__container">
 					<div class="auth-form__header">
 						<h3 class="auth-form__heading">Đăng nhập</h3>
-						<span class="auth-form__switch-btn">Đăng ký</span>
+						<span class="auth-form__switch-btn register-inlogin">Đăng ký</sp>
 					</div>
 
 					<div class="auth-form__form">
@@ -940,10 +1233,91 @@
 						<span class="auth-form__socials-title">Kết nối với Google</span>
 					</a>
 				</div>
-			</div> -->
-		<!-- </div>
-	</div> -->
-
-	
+			</div>
+		</div>
+	</div>
 </body>
+
+<script>
+	// Open or Close navbar-list when click to navbar-menu
+	const navBarMenu = document.querySelector('.mobile-navbar-menu')
+	const navBarList = document.querySelector('.mobile-navbar-menu__wrap')
+	const navBarOverlay = document.querySelector('.mobile-navbar-menu-overlay')
+
+	navBarList.style.display = 'none'
+	navBarMenu.onclick = function () {
+		if (navBarList.style.display == 'none') {
+			navBarList.style.display = 'flex'
+		} else {
+			navBarList.style.display = 'none'
+
+		}
+	}
+
+	navBarOverlay.onclick = function () {
+		navBarList.style.display = 'none'
+	}
+
+	// Handle login/ register
+	const loginBtn = document.querySelector('.login')
+	const loginBtnIn = document.querySelector('.login-inregister')
+	const registerBtn = document.querySelector('.register')
+	const registerBtnIn = document.querySelector('.register-inlogin')
+
+	const modal = document.querySelector('.modal')
+	const modalOverlay = document.querySelector('.modal__overlay')
+	const formRegister = document.querySelector('.auth-form__register')
+	const formLogin = document.querySelector('.auth-form__login')
+	
+
+	loginBtn.onclick = () => {
+		modal.style.display = 'flex'
+		formLogin.style.display = 'block'
+		formRegister.style.display = 'none'
+	}
+
+	modalOverlay.onclick = () => {
+		modal.style.display = 'none'
+		formLogin.style.display = 'none'
+		formRegister.style.display = 'none'
+	}
+
+	registerBtn.onclick = () => {
+		modal.style.display = 'flex'
+		formRegister.style.display = 'block'
+		formLogin.style.display = 'none'
+	}
+
+	registerBtnIn.onclick = () => {
+		modal.style.display = 'flex'
+		formRegister.style.display = 'block'
+		formLogin.style.display = 'none'
+	}
+
+	loginBtnIn.onclick = () => {
+		modal.style.display = 'flex'
+		formLogin.style.display = 'block'
+		formRegister.style.display = 'none'
+	}
+
+	// Handle login on mobile 
+	const registerBtnMobile = document.querySelector('.register-mobile')
+	const loginBtnMobile = document.querySelector('.login-mobile')
+	
+	registerBtnMobile.onclick = () => {
+		modal.style.display = 'flex'
+		formRegister.style.display = 'block'
+		formLogin.style.display = 'none'
+		navBarList.style.display = 'none'
+	}
+
+	loginBtnMobile.onclick = () => {
+		modal.style.display = 'flex'
+		formLogin.style.display = 'block'
+		formRegister.style.display = 'none'
+		navBarList.style.display = 'none'
+	}
+
+</script>
+
 </html>
